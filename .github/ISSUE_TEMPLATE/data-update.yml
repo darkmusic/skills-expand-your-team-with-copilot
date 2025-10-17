@@ -1,0 +1,115 @@
+name: 📊 Data Update
+description: Request changes to student lists, teacher accounts, or other data
+title: "[Data] "
+labels: ["data", "enhancement"]
+assignees:
+  - copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Data Update Request
+        Fill out this form to request changes to student registrations, teacher accounts, or other data.
+        
+  - type: dropdown
+    id: data-type
+    attributes:
+      label: What type of data needs to be updated?
+      description: Select the category of data
+      options:
+        - Student registrations (add/remove students from activities)
+        - Teacher accounts (add/update teacher login)
+        - Activity participants list
+        - Student information
+        - Other data
+    validations:
+      required: true
+      
+  - type: input
+    id: affected-item
+    attributes:
+      label: Which activity or account?
+      description: What specific activity or account is affected?
+      placeholder: e.g., "Chess Club" or "Teacher Ms. Smith"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: change-details
+    attributes:
+      label: What changes are needed?
+      description: Describe exactly what data should be added, removed, or updated
+      placeholder: |
+        Be specific. For example:
+        - Add student john@mergington.edu to Chess Club
+        - Remove sophia@mergington.edu from Programming Class
+        - Create teacher account for Mr. Johnson with username "mjohnson"
+        - Update max participants for Soccer Team to 25
+    validations:
+      required: true
+      
+  - type: textarea
+    id: student-list
+    attributes:
+      label: Student Email List (if applicable)
+      description: If adding/removing multiple students, list their emails
+      placeholder: |
+        student1@mergington.edu
+        student2@mergington.edu
+        student3@mergington.edu
+    validations:
+      required: false
+      
+  - type: input
+    id: teacher-username
+    attributes:
+      label: Teacher Username (if applicable)
+      description: For teacher account changes, what should the username be?
+      placeholder: e.g., mjohnson, mrodriguez
+    validations:
+      required: false
+      
+  - type: input
+    id: teacher-display-name
+    attributes:
+      label: Teacher Display Name (if applicable)
+      description: What name should show when the teacher is logged in?
+      placeholder: e.g., Mr. Johnson, Ms. Rodriguez
+    validations:
+      required: false
+      
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for Change
+      description: Why is this data change needed?
+      placeholder: Context helps ensure the change is made correctly
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### Acceptance Criteria
+        - The specified data is updated correctly
+        - Changes are reflected when viewing the relevant pages
+        - Data integrity is maintained (no duplicate or invalid entries)
+        - For student registrations, the activity capacity is respected
+        - For teacher accounts, login works correctly
+        
+        ### Technical Hints
+        - Student and activity data is in `src/backend/database.py`
+        - Update the `initial_activities` dictionary for activity participant changes
+        - Update the `initial_teachers` list for teacher account changes
+        - Student emails must follow the format: name@mergington.edu
+        - Teacher passwords should be hashed using the `hash_password()` function
+        - Verify changes don't exceed activity max_participants limit
+        - Test that updated data appears correctly in the UI
+        - For teacher accounts, verify login functionality works
+        
+        ### Important Notes
+        - Student emails must be valid email addresses
+        - Check for duplicates before adding students to activities
+        - Maintain consistent formatting with existing data
+        - Preserve existing data structure and format

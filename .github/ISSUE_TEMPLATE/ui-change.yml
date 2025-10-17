@@ -1,0 +1,98 @@
+name: 🎨 UI/Design Change
+description: Request changes to the user interface or design
+title: "[UI] "
+labels: ["enhancement", "ui"]
+assignees:
+  - copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## UI/Design Change Request
+        Fill out this form to request changes to the website's appearance or user experience.
+        
+  - type: dropdown
+    id: ui-area
+    attributes:
+      label: Which area needs changes?
+      description: Select the part of the website that needs to be modified
+      options:
+        - Header/Navigation
+        - Activity List/Cards
+        - Filters (category, day, time)
+        - Login/Registration Forms
+        - Activity Details
+        - Colors/Styling
+        - Layout/Spacing
+        - Other
+    validations:
+      required: true
+      
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current Behavior
+      description: What does it look like or do now?
+      placeholder: Describe what you currently see or how it currently works
+    validations:
+      required: true
+      
+  - type: textarea
+    id: desired-behavior
+    attributes:
+      label: Desired Behavior
+      description: What should it look like or do instead?
+      placeholder: Describe exactly what you want to see or how you want it to work
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this change?
+      options:
+        - Low - Nice to have
+        - Medium - Would improve experience
+        - High - Important for usability
+    validations:
+      required: true
+      
+  - type: textarea
+    id: visual-example
+    attributes:
+      label: Visual Example or Mockup
+      description: If you have a sketch, screenshot, or example, describe it or attach it
+      placeholder: You can paste images or links to examples here
+    validations:
+      required: false
+      
+  - type: checkboxes
+    id: affected-users
+    attributes:
+      label: Who is affected?
+      description: Which users will benefit from this change?
+      options:
+        - label: Students viewing activities
+        - label: Students registering for activities
+        - label: Teachers managing activities
+        - label: All users
+          
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### Acceptance Criteria
+        - The UI change is implemented as described
+        - The change works on different screen sizes (mobile, tablet, desktop)
+        - The change is consistent with the overall design
+        - No existing functionality is broken
+        - The website remains simple and easy to use
+        
+        ### Technical Hints
+        - HTML structure is in `src/static/index.html`
+        - Styling is in `src/static/styles.css`
+        - Interactive behavior is in `src/static/app.js`
+        - Only use HTML, CSS, and JavaScript (no additional libraries unless absolutely necessary)
+        - Test changes on different screen sizes
+        - Keep the design simple and accessible for non-technical users
