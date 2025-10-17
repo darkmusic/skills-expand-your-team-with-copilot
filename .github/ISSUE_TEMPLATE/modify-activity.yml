@@ -1,0 +1,85 @@
+name: ✏️ Modify Existing Activity
+description: Request changes to an existing extracurricular activity
+title: "[Activity] Modify: "
+labels: ["enhancement", "activity"]
+assignees:
+  - copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Modify Existing Activity
+        Fill out this form to request changes to an existing activity.
+        
+  - type: input
+    id: activity-name
+    attributes:
+      label: Activity Name
+      description: Which activity needs to be modified?
+      placeholder: e.g., Chess Club, Soccer Team, Art Club
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: change-type
+    attributes:
+      label: Type of Change
+      description: What kind of change do you need?
+      options:
+        - Update schedule (time/days)
+        - Change description
+        - Modify maximum participants
+        - Change category
+        - Multiple changes
+    validations:
+      required: true
+      
+  - type: textarea
+    id: changes-requested
+    attributes:
+      label: Changes Requested
+      description: Describe exactly what needs to be changed
+      placeholder: |
+        Be specific about the changes needed. For example:
+        - Change meeting time from 3:00 PM to 3:30 PM
+        - Add Friday to meeting days
+        - Update description to mention new equipment
+        - Increase max participants from 15 to 20
+    validations:
+      required: true
+      
+  - type: input
+    id: new-schedule
+    attributes:
+      label: New Schedule (if applicable)
+      description: If changing schedule, what is the new schedule?
+      placeholder: e.g., Mondays and Thursdays, 3:30 PM - 5:00 PM
+    validations:
+      required: false
+      
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for Change
+      description: Why is this change needed?
+      placeholder: Help us understand the context for this change
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### Acceptance Criteria
+        - The specified activity is updated with the requested changes
+        - Changes are reflected in the activity list and detail views
+        - Filters still work correctly after the changes
+        - Existing student registrations are preserved (unless participant limit is reduced)
+        
+        ### Technical Hints
+        - Find the activity in `src/backend/database.py` in the `initial_activities` dictionary
+        - Update the relevant fields (description, schedule, schedule_details, max_participants, etc.)
+        - If changing schedule, update both the `schedule` string and `schedule_details` object
+        - Ensure `schedule_details.days` is an array of day names
+        - Use 24-hour format for times (e.g., "15:30" for 3:30 PM)
+        - Test that filters still work correctly with the updated data

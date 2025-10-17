@@ -1,0 +1,110 @@
+name: ✨ Feature Request
+description: Suggest a new feature or improvement
+title: "[Feature] "
+labels: ["enhancement"]
+assignees:
+  - copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request
+        Fill out this form to suggest a new feature or improvement to the system.
+        
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: What feature would you like?
+      description: Describe the new feature or improvement
+      placeholder: e.g., "Add ability to export student lists" or "Show activity capacity on cards"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: problem-solved
+    attributes:
+      label: What problem does this solve?
+      description: Why is this feature needed?
+      placeholder: Explain the problem or need this feature would address
+    validations:
+      required: true
+      
+  - type: textarea
+    id: how-it-should-work
+    attributes:
+      label: How should it work?
+      description: Describe how you imagine this feature working
+      placeholder: |
+        Be as specific as possible. For example:
+        - Where should it appear on the website?
+        - What should users do to use it?
+        - What should happen when they use it?
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: user-type
+    attributes:
+      label: Who would use this feature?
+      description: Which users would benefit?
+      options:
+        - label: Students
+        - label: Teachers
+        - label: Administrators
+        - label: All users
+          
+  - type: dropdown
+    id: importance
+    attributes:
+      label: How important is this feature?
+      description: Help us prioritize
+      options:
+        - Nice to have - Would be a small improvement
+        - Useful - Would make things easier
+        - Important - Would solve a significant problem
+        - Critical - Essential for using the system
+    validations:
+      required: true
+      
+  - type: textarea
+    id: alternative-solutions
+    attributes:
+      label: Are there other ways to solve this?
+      description: Have you considered any alternatives?
+      placeholder: Describe any workarounds or alternative approaches
+    validations:
+      required: false
+      
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Information
+      description: Any other details or examples?
+      placeholder: Screenshots, examples from other systems, specific requirements, etc.
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ### Acceptance Criteria
+        - The feature works as described
+        - The feature is easy to use
+        - The feature doesn't break existing functionality
+        - The feature is tested and works reliably
+        - Documentation is updated if needed
+        
+        ### Technical Hints
+        - Keep the implementation simple and maintainable
+        - Use existing patterns and conventions from the codebase
+        - Only use HTML, CSS, JavaScript, and Python
+        - Consider how the feature affects different user types
+        - Test thoroughly on different screen sizes
+        - Ensure the feature is intuitive for non-technical users
+        
+        ### Limitations
+        - Do not add new external libraries unless absolutely necessary
+        - Do not create command line tools or helper scripts
+        - Keep the code easy to understand for teachers without coding experience
+        - Maintain the simple, clean user interface
